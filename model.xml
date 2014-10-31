@@ -2,7 +2,36 @@
 	<featureModel chosenLayoutAlgorithm="1">
 		<struct>
 			<and abstract="true" mandatory="true" name="beDone">
-				<feature name="Base"/>
+				<feature mandatory="true" name="Base"/>
+				<and name="Eingabe">
+					<feature mandatory="true" name="Text"/>
+					<feature name="Tag"/>
+				</and>
+				<or name="Bearbeiten">
+					<feature mandatory="true" name="Löschen"/>
+					<feature mandatory="true" name="erledigt"/>
+				</or>
+				<or mandatory="true" name="Ansehen">
+					<or mandatory="true" name="live">
+						<feature mandatory="true" name="GUI"/>
+						<feature mandatory="true" name="WEB"/>
+						<feature mandatory="true" name="Konsole"/>
+					</or>
+					<or mandatory="true" name="export">
+						<feature mandatory="true" name="HTML"/>
+						<feature mandatory="true" name="Markdown"/>
+						<and mandatory="true" name="txt">
+							<feature name="csv"/>
+						</and>
+					</or>
+				</or>
+				<alt mandatory="true" name="Speicher">
+					<alt mandatory="true" name="SQLDB">
+						<feature mandatory="true" name="sqlite"/>
+						<feature mandatory="true" name="externMySQL"/>
+					</alt>
+					<feature mandatory="true" name="TXT"/>
+				</alt>
 			</and>
 		</struct>
 		<constraints/>
