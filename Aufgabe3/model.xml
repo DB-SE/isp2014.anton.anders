@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="beDone">
+				<description>
+					Root-Knoten
+				</description>
+				<and mandatory="true" name="Base">
+					<description>
+						Basiselement, welches Laufzeit alle TODOs verwaltet
+					</description>
+					<feature name="Tag">
+						<description>
+							Taggen von TODOs wird möglich
+						</description>
+					</feature>
+					<feature mandatory="true" name="Text">
+						<description>
+							Beschreibung der TODOs
+						</description>
+					</feature>
+				</and>
+				<feature name="Eingabe">
+					<description>
+						Eingabe der Aufgabe
+					</description>
+				</feature>
+				<or name="Bearbeiten">
+					<description>
+						allgemeines Bearbeiten der Aufgabe
+					</description>
+					<feature mandatory="true" name="Löschen">
+						<description>
+							Löschen von Aufgaben
+						</description>
+					</feature>
+					<feature mandatory="true" name="erledigt">
+						<description>
+							Als erledigt markieren von Aufgaben
+						</description>
+					</feature>
+				</or>
+				<or mandatory="true" name="Ansehen">
+					<description>
+						Ansehen der Aufgaben
+						
+					</description>
+					<or mandatory="true" name="live">
+						<description>
+							Ansehen während der Laufzeit
+						</description>
+						<feature mandatory="true" name="GUI">
+							<description>
+								JAVA GUI für TODOs
+							</description>
+						</feature>
+						<feature mandatory="true" name="WEB">
+							<description>
+								Webinterface über HTTP-Server
+								
+							</description>
+						</feature>
+						<feature mandatory="true" name="Konsole">
+							<description>
+								Bediehnung über Konsole
+							</description>
+						</feature>
+					</or>
+					<or mandatory="true" name="export">
+						<description>
+							Export der Aufgaben
+						</description>
+						<feature mandatory="true" name="HTML">
+							<description>
+								HTML-Syntax ( Tabellen )
+							</description>
+						</feature>
+						<feature mandatory="true" name="Markdown">
+							<description>
+								Markdown-Syntax über Tabellen und Listen
+							</description>
+						</feature>
+						<and mandatory="true" name="txt">
+							<description>
+								menschenlesbare Textrepresentation der Aufgaben
+							</description>
+							<feature name="csv">
+								<description>
+									Textrepresentation im CSV-Format, Tabsepariert
+								</description>
+							</feature>
+						</and>
+					</or>
+				</or>
+				<alt mandatory="true" name="Speicher">
+					<description>
+						Speichern der Aufgaben
+					</description>
+					<alt mandatory="true" name="SQLDB">
+						<description>
+							Speichern per SQL-Abfragen in eine Datenbank
+						</description>
+						<feature mandatory="true" name="sqlite">
+							<description>
+								Datenbank wird  Intrigrierte SQLITE-DB 
+							</description>
+						</feature>
+						<feature mandatory="true" name="externMySQL">
+							<description>
+								Datenbank wird von einem externen DBMS verwaltet
+							</description>
+						</feature>
+					</alt>
+					<feature mandatory="true" name="TXT">
+						<description>
+							Textrepresentation der Aufgaben
+						</description>
+					</feature>
+				</alt>
+			</and>
+		</struct>
+		<constraints/>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
