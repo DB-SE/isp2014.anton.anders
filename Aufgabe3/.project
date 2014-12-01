@@ -34,6 +34,18 @@
 					<key>LaunchConfigHandle</key>
 					<value>&lt;project&gt;/.externalToolBuilders/antenna.eclipse.preprocessor.appbuilder.launch</value>
 				</dictionary>
+				<dictionary>
+					<key>build</key>
+					<value>src</value>
+				</dictionary>
+				<dictionary>
+					<key>equations</key>
+					<value>configs</value>
+				</dictionary>
+				<dictionary>
+					<key>source</key>
+					<value>src</value>
+				</dictionary>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
