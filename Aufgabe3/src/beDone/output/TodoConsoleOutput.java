@@ -15,7 +15,14 @@ public class TodoConsoleOutput implements TodoOutputInterface {
 	public void callOutput() {
 		ConsoleIO c = ConsoleIO.getInstance();
 		
-		String[] out = {"#", "Status", "Titel", "Beschreibung"};
+		String[] out = {"#", 
+				"Status", 
+				"Titel",
+				//#ifdef Tag
+				"Tags",
+				//#endif
+				"Beschreibung"
+				};
 		
 		c.writeTable(out);
 		int i = 1;
@@ -23,7 +30,12 @@ public class TodoConsoleOutput implements TodoOutputInterface {
 			out[0] = ""+i++;
 			out[1] = t.getStatus().toString();
 			out[2] = t.getTitle();
-			out[3] = t.getText();
+			//#ifndef Tag
+//@			out[3] = t.getText();
+			//#else
+			out[3] = t.getTagsString();
+			out[4] = t.getText();
+			//#endif
 			
 			c.writeTable(out);
 		}

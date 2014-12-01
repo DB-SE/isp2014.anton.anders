@@ -25,6 +25,11 @@ public class TodoConsoleInput implements TodoInputInterface {
 		
 		t.setText(c.readLine());
 		
+		//#ifdef Tag
+		System.out.print("Tags(Geben Sie sie Komma-Separiert an):");
+		t.setTags(c.readLine());
+		//#endif
+		
 		System.out.print("Status (Neu = 1, Offen = 2, Erledigt = 3):");
 
 		t.setStatus( this.getTodoStatus(c.readInt()) );

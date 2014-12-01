@@ -10,8 +10,6 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
-
-
 import beDone.core.TodoEntry;
 import beDone.core.TodoList;
 
@@ -34,7 +32,7 @@ public class PersistentTextStorage implements PersistentStorageInterface {
 	
 	/*
 	 * Aufbau des Datensatzes: 
-	 * 	ID ;[[TAGS_COMMA_SEPERATED];] title ; text ; status
+	 * 	ID ;title ; text ; status[;[TAGS_COMMA_SEPERATED]] 
 	 */
 	public boolean parseLine(String line){
 		TodoEntry t = new TodoEntry();
@@ -47,6 +45,9 @@ public class PersistentTextStorage implements PersistentStorageInterface {
 		t.setTitle( this.decode(raw[1]) );
 		t.setText(  this.decode(raw[2]) );
 		t.setStatus(raw[3]);
+		//#ifdef Tag
+		t.setTags(raw[4]);
+		//#endif
 		
 		this.todolist.addTodo(t);
 		
@@ -60,7 +61,10 @@ public class PersistentTextStorage implements PersistentStorageInterface {
 		line += this.encode(t.getTitle()) + ";";
 		line += this.decode(t.getText())  + ";";
 		line += t.getStatus();
-		
+		//#ifdef Tag
+		line +=";"+t.getTagsString();
+		//#endif
+		line +="\n";
 		return line;
 	}
 	
@@ -72,10 +76,14 @@ public class PersistentTextStorage implements PersistentStorageInterface {
 				this.parseLine(scanner.nextLine());
 			}
 			scanner.close();
+			is.close();
 			return true;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.err.println("FILE NOT FOUND");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return false;

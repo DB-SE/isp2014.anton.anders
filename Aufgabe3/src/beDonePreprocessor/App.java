@@ -26,9 +26,6 @@ import beDone.storage.PersistentTextStorage;
  * @author Anton Anders
  *
  */
-//#define OUTPUT_CONSOLE
-//#define INPUT_CONSOLE
-//#define STORAGE_TEXT
 
 public class App {
 	
@@ -57,7 +54,7 @@ public class App {
 		 * Wenn kein Input und Output-Feature gewählt, brauchen wir einen Standard-Router
 		 */
 		
-		//#ifndef INPUT_CONSOLE
+		//#ifndef INPUT_CONSOLE 
 //@			this.router = new TodoConsoleRouter();
 		//#endif
 		
@@ -92,7 +89,7 @@ public class App {
 			this.router.setOutput(this.output);
 		//#endif
 		
-		//#ifdef STORAGE_TEXT
+		//#ifdef TXT
 			this.storage = new PersistentTextStorage();
 			this.storage.setTodoList(this.todos);
 			this.router.setStorage(this.storage);
