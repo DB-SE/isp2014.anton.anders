@@ -30,7 +30,7 @@
 					<description>
 						allgemeines Bearbeiten der Aufgabe
 					</description>
-					<feature mandatory="true" name="Löschen">
+					<feature mandatory="true" name="DELETE">
 						<description>
 							Löschen von Aufgaben
 						</description>
