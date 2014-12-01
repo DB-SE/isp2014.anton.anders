@@ -20,11 +20,12 @@
 						</description>
 					</feature>
 				</and>
-				<feature name="Eingabe">
+				<and name="Eingabe">
 					<description>
 						Eingabe der Aufgabe
 					</description>
-				</feature>
+					<feature name="INPUT_CONSOLE"/>
+				</and>
 				<or name="Bearbeiten">
 					<description>
 						allgemeines Bearbeiten der Aufgabe
@@ -43,24 +44,22 @@
 				<or mandatory="true" name="Ansehen">
 					<description>
 						Ansehen der Aufgaben
-						
 					</description>
 					<or mandatory="true" name="live">
 						<description>
 							Ansehen während der Laufzeit
 						</description>
-						<feature mandatory="true" name="GUI">
+						<feature mandatory="true" name="OUTPUT_GUI">
 							<description>
 								JAVA GUI für TODOs
 							</description>
 						</feature>
-						<feature mandatory="true" name="WEB">
+						<feature mandatory="true" name="OUTPUT_WEB">
 							<description>
 								Webinterface über HTTP-Server
-								
 							</description>
 						</feature>
-						<feature mandatory="true" name="Konsole">
+						<feature mandatory="true" name="OUTPUT_CONSOLE">
 							<description>
 								Bediehnung über Konsole
 							</description>
@@ -102,7 +101,7 @@
 						</description>
 						<feature mandatory="true" name="sqlite">
 							<description>
-								Datenbank wird  Intrigrierte SQLITE-DB 
+								Datenbank wird  Intrigrierte SQLITE-DB
 							</description>
 						</feature>
 						<feature mandatory="true" name="externMySQL">
