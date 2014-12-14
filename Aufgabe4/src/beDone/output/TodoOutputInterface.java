@@ -8,4 +8,6 @@ public interface TodoOutputInterface {
 	
 	public void callOutput();
 	
+	public void callOutputDelete();
+	
 }
