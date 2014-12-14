@@ -11,6 +11,7 @@ import beDone.output.TodoOutputInterface;
 import beDone.router.RouterContainer;
 import beDone.router.TodoConsoleRouter;
 import beDone.router.TodoRouterInterface;
+import beDone.storage.PersistentSQLITEStorage;
 import beDone.storage.PersistentStorageInterface;
 import beDone.storage.PersistentTextStorage;
 
@@ -78,7 +79,7 @@ public class App {
 
 		this.addConsoleOutput();
 		
-		this.setStorage(new PersistentTextStorage());
+		this.setStorage(new PersistentSQLITEStorage());
 		
 	}
 	
