@@ -28,6 +28,14 @@ import beDone.storage.PersistentTextStorage;
  * 		console			#Feature3 - Ausgabe der TODOs erlauben oder nicht
  * 		
  * 
+ * 
+ * FEATURES
+ * 	INPUT 	=> CONSOLE oder NICHTS
+ *  OUTPUT	=> CONSOLE oder NICHTS
+ *  STORAGE => SQL oder TXT oder NICHTS
+ *  ROUTER  => CONSOLE oder NICHTS		
+ *  CORE	=> TAGS oder NICHTS				=> ADDONS für ToDo-Entry
+ * 
  * @author Anton Anders
  *
  */
@@ -57,13 +65,12 @@ public class App {
 	public void init(){
 		
 		TodoEntry t = new TodoEntry();
-		t.addAddon(new TodoEntryTagAddon());
+		t.addAddon(new TodoEntryTagAddon());   // TAGS FEATURE
 		TodoEntryFactory.setPrototype(t);
 		
 		/*
-		 * Wenn kein Input und Output-Feature gewählt, brauchen wir einen Standard-Router
+		 * Ein Router-Container für verschiedene router (Konsole, HTTP, ...)
 		 */
-		
 		this.router = new RouterContainer();
 		
 		/*
@@ -79,7 +86,12 @@ public class App {
 
 		this.addConsoleOutput();
 		
+		/*
+		 * Speicher-Engine 
+		 * SQL oder TEXT
+		 */
 		this.setStorage(new PersistentSQLITEStorage());
+		//this.setStorage(new PersistentTextStorage());
 		
 	}
 	
