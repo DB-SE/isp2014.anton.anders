@@ -112,7 +112,10 @@ public class PersistentSQLITEStorage implements PersistentStorageInterface{
 		Statement stmt;
 		try {
 			stmt 		= c.createStatement();
-			String sql 	= "INSERT or IGNORE INTO todo (" + this.generateColumnnames() + ") VALUES ";
+			String sql 	= "DELETE FROM todo;";
+			stmt.execute(sql);
+			
+			sql 	= "INSERT or IGNORE INTO todo (" + this.generateColumnnames() + ") VALUES ";
 			for(TodoEntry t : this.todos.getTodos()){
 				sql += this.generateInsertValue(t);
 			}
