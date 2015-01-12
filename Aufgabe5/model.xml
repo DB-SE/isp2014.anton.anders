@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="beDone">
+				<description>
+					Root-Knoten
+				</description>
+				<and mandatory="true" name="BASE">
+					<description>
+						Basiselement, welches Laufzeit alle TODOs verwaltet
+					</description>
+					<feature name="BASE_TAG">
+						<description>
+							Taggen von TODOs wird möglich
+						</description>
+					</feature>
+					<feature mandatory="true" name="BASE_TEXT">
+						<description>
+							Beschreibung der TODOs
+						</description>
+					</feature>
+				</and>
+				<and mandatory="true" name="INPUT">
+					<description>
+						Eingabe der Aufgabe
+					</description>
+					<feature name="INPUT_CONSOLE"/>
+				</and>
+				<or name="EDIT">
+					<description>
+						allgemeines Bearbeiten der Aufgabe
+					</description>
+					<feature mandatory="true" name="EDIT_DELETE">
+						<description>
+							Löschen von Aufgaben
+						</description>
+					</feature>
+					<feature mandatory="true" name="EDIT_STATUS">
+						<description>
+							Als erledigt markieren von Aufgaben
+						</description>
+					</feature>
+				</or>
+				<or mandatory="true" name="OUTPUT">
+					<description>
+						Ansehen der Aufgaben
+					</description>
+					<or abstract="true" mandatory="true" name="OUTPUT_lIVE">
+						<description>
+							Ansehen während der Laufzeit
+						</description>
+						<feature mandatory="true" name="OUTPUT_LIVE_GUI">
+							<description>
+								JAVA GUI für TODOs
+							</description>
+						</feature>
+						<feature mandatory="true" name="OUTPUT_LIVE_WEB">
+							<description>
+								Webinterface über HTTP-Server
+							</description>
+						</feature>
+						<feature mandatory="true" name="OUTPUT_LIVE_CONSOLE">
+							<description>
+								Bediehnung über Konsole
+							</description>
+						</feature>
+					</or>
+					<or abstract="true" mandatory="true" name="OUTPUT_EXPORT">
+						<description>
+							Export der Aufgaben
+						</description>
+						<feature mandatory="true" name="OUTPUT_EXPORT_HTML">
+							<description>
+								HTML-Syntax ( Tabellen )
+							</description>
+						</feature>
+						<feature mandatory="true" name="OUTPUT_EXPORT_MARKDOWN">
+							<description>
+								Markdown-Syntax über Tabellen und Listen
+							</description>
+						</feature>
+						<feature mandatory="true" name="OUTPUT_EXPORT_TEXT">
+							<description>
+								menschenlesbare Textrepresentation der Aufgaben
+							</description>
+						</feature>
+					</or>
+				</or>
+				<alt mandatory="true" name="STORAGE">
+					<description>
+						Speichern der Aufgaben
+					</description>
+					<alt abstract="true" mandatory="true" name="STORAGE_SQLDB">
+						<description>
+							Speichern per SQL-Abfragen in eine Datenbank
+						</description>
+						<feature mandatory="true" name="STORAGE_SQLITE">
+							<description>
+								Datenbank wird  Intrigrierte SQLITE-DB
+							</description>
+						</feature>
+						<feature mandatory="true" name="STORAGE_MYSQL">
+							<description>
+								Datenbank wird von einem externen DBMS verwaltet
+							</description>
+						</feature>
+					</alt>
+					<feature mandatory="true" name="STORAGE_TXT">
+						<description>
+							Textrepresentation der Aufgaben
+						</description>
+					</feature>
+				</alt>
+				<and mandatory="true" name="ROUTER">
+					<feature name="ROUTER_CONSOLE"/>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>INPUT_CONSOLE</var>
+					<var>ROUTER_CONSOLE</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="true">
+			<feature name="BASE"/>
+			<feature name="BASE_TAG"/>
+			<feature name="BASE_TEXT"/>
+			<feature name="ROUTER"/>
+			<feature name="ROUTER_CONSOLE"/>
+			<feature name="INPUT"/>
+			<feature name="INPUT_CONSOLE"/>
+			<feature name="EDIT"/>
+			<feature name="EDIT_DELETE"/>
+			<feature name="EDIT_STATUS"/>
+			<feature name="OUTPUT"/>
+			<feature name="OUTPUT_LIVE_GUI"/>
+			<feature name="OUTPUT_LIVE_WEB"/>
+			<feature name="OUTPUT_LIVE_CONSOLE"/>
+			<feature name="OUTPUT_EXPORT_HTML"/>
+			<feature name="OUTPUT_EXPORT_MARKDOWN"/>
+			<feature name="OUTPUT_EXPORT_TEXT"/>
+			<feature name="STORAGE"/>
+			<feature name="STORAGE_SQLITE"/>
+			<feature name="STORAGE_MYSQL"/>
+			<feature name="STORAGE_TXT"/>
+		</featureOrder>
+	</featureModel>

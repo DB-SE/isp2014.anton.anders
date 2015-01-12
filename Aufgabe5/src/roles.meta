@@ -1,0 +1,248 @@
+{
+	"features" : [
+		"BASE",
+		"BASE_TAG",
+		"BASE_TEXT",
+		"ROUTER",
+		"ROUTER_CONSOLE",
+		"INPUT",
+		"INPUT_CONSOLE",
+		"OUTPUT",
+		"OUTPUT_LIVE_CONSOLE",
+		"STORAGE",
+		"STORAGE_SQLITE"
+	],
+	"roles": {
+		"init": {
+			"BASE": "init__wrappee__BASE",
+			"BASE_TAG": "init__wrappee__BASE",
+			"INPUT_CONSOLE": "init__wrappee__INPUT_CONSOLE",
+			"STORAGE_TXT": "init__wrappee__BASE",
+			"ROUTER": "init__wrappee__ROUTER",
+			"ROUTER_CONSOLE": "init__wrappee__ROUTER_CONSOLE",
+			"STORAGE_SQLITE": "init",
+			"OUTPUT": "init__wrappee__OUTPUT"
+		},
+		"main": {
+			"BASE": "main"
+		},
+		"addRouter": {
+			"BASE": "addRouter",
+			"ROUTER": "addRouter"
+		},
+		"implode": {
+			"BASE": "implode"
+		},
+		"explode": {
+			"BASE": "explode"
+		},
+		"getInstance": {
+			"BASE": "getInstance"
+		},
+		"writeLine": {
+			"BASE": "writeLine"
+		},
+		"writeNewPage": {
+			"BASE": "writeNewPage"
+		},
+		"writeTable": {
+			"BASE": "writeTable"
+		},
+		"readLine": {
+			"BASE": "readLine"
+		},
+		"readInt": {
+			"BASE": "readInt"
+		},
+		"addTodo": {
+			"BASE": "addTodo"
+		},
+		"getTodo": {
+			"BASE": "getTodo"
+		},
+		"deleteTodo": {
+			"BASE": "deleteTodo"
+		},
+		"getTodos": {
+			"BASE": "getTodos"
+		},
+		"generateID": {
+			"BASE": "generateID"
+		},
+		"setID": {
+			"BASE": "setID"
+		},
+		"setStatus": {
+			"BASE": "setStatus"
+		},
+		"getID": {
+			"BASE": "getID"
+		},
+		"getStatus": {
+			"BASE": "getStatus"
+		},
+		"getAddons": {
+			"BASE": "getAddons"
+		},
+		"getName": {
+			"BASE": "getName",
+			"BASE_TAG": "getName",
+			"ROUTER": "getName",
+			"ROUTER_CONSOLE": "getName"
+		},
+		"getValues": {
+			"BASE": "getValues",
+			"BASE_TAG": "getValues"
+		},
+		"setValues": {
+			"BASE": "setValues",
+			"BASE_TAG": "setValues"
+		},
+		"addValue": {
+			"BASE": "addValue",
+			"BASE_TAG": "addValue"
+		},
+		"getFormText": {
+			"BASE": "getFormText",
+			"BASE_TAG": "getFormText"
+		},
+		"clone": {
+			"BASE": "clone"
+		},
+		"setText": {
+			"BASE_TEXT": "setText"
+		},
+		"setTitle": {
+			"BASE_TEXT": "setTitle"
+		},
+		"getText": {
+			"BASE_TEXT": "getText"
+		},
+		"getTitle": {
+			"BASE_TEXT": "getTitle"
+		},
+		"setTodoList": {
+			"INPUT": "setTodoList",
+			"INPUT_CONSOLE": "setTodoList",
+			"OUTPUT": "setTodoList",
+			"OUTPUT_LIVE_CONSOLE": "setTodoList",
+			"STORAGE": "setTodoList",
+			"STORAGE_SQLITE": "setTodoList",
+			"STORAGE_TXT": "setTodoList"
+		},
+		"callDialog": {
+			"INPUT": "callDialog",
+			"INPUT_CONSOLE": "callDialog"
+		},
+		"addConsoleInput": {
+			"INPUT_CONSOLE": "addConsoleInput"
+		},
+		"getTodoStatus": {
+			"INPUT_CONSOLE": "getTodoStatus"
+		},
+		"callOutput": {
+			"OUTPUT": "callOutput",
+			"OUTPUT_LIVE_CONSOLE": "callOutput"
+		},
+		"callOutputDelete": {
+			"OUTPUT": "callOutputDelete",
+			"OUTPUT_LIVE_CONSOLE": "callOutputDelete",
+			"EDIT_DELETE": "callOutputDelete"
+		},
+		"save": {
+			"STORAGE": "save",
+			"STORAGE_SQLITE": "save",
+			"STORAGE_TXT": "save"
+		},
+		"load": {
+			"STORAGE": "load",
+			"STORAGE_SQLITE": "load",
+			"STORAGE_TXT": "load"
+		},
+		"addTODOTable": {
+			"STORAGE_SQLITE": "addTODOTable"
+		},
+		"checkAndAddCollumn": {
+			"STORAGE_SQLITE": "checkAndAddCollumn"
+		},
+		"generateColumnnames": {
+			"STORAGE_SQLITE": "generateColumnnames"
+		},
+		"generateInsertValue": {
+			"STORAGE_SQLITE": "generateInsertValue"
+		},
+		"getRouter": {
+			"ROUTER": "getRouter"
+		},
+		"startAll": {
+			"ROUTER": "startAll"
+		},
+		"stopAll": {
+			"ROUTER": "stopAll"
+		},
+		"start": {
+			"ROUTER": "start",
+			"ROUTER_CONSOLE": "start"
+		},
+		"stop": {
+			"ROUTER": "stop",
+			"ROUTER_CONSOLE": "stop"
+		},
+		"isRunning": {
+			"ROUTER": "isRunning",
+			"ROUTER_CONSOLE": "isRunning"
+		},
+		"setOutput": {
+			"ROUTER": "setOutput",
+			"ROUTER_CONSOLE": "setOutput"
+		},
+		"setInput": {
+			"ROUTER": "setInput",
+			"ROUTER_CONSOLE": "setInput"
+		},
+		"setStorage": {
+			"ROUTER": "setStorage",
+			"ROUTER_CONSOLE": "setStorage",
+			"STORAGE_SQLITE": "setStorage",
+			"STORAGE": "setStorage"
+		},
+		"printMenu": {
+			"ROUTER_CONSOLE": "printMenu"
+		},
+		"getMenuSelect": {
+			"ROUTER_CONSOLE": "getMenuSelect"
+		},
+		"addConsoleOutput": {
+			"OUTPUT": "addConsoleOutput"
+		},
+		"setFilename": {
+			"STORAGE_TXT": "setFilename"
+		},
+		"encode": {
+			"STORAGE_TXT": "encode"
+		},
+		"decode": {
+			"STORAGE_TXT": "decode"
+		},
+		"parseLine": {
+			"STORAGE_TXT": "parseLine"
+		},
+		"buildLine": {
+			"STORAGE_TXT": "buildLine"
+		},
+		"buildHeaderLine": {
+			"STORAGE_TXT": "buildHeaderLine"
+		},
+		"parseHeader": {
+			"STORAGE_TXT": "parseHeader"
+		},
+		"clearFile": {
+			"STORAGE_TXT": "clearFile"
+		},
+		"hasDelete": {
+			"OUTPUT_LIVE_CONSOLE": "hasDelete",
+			"OUTPUT": "hasDelete"
+		}
+	}
+
+}
