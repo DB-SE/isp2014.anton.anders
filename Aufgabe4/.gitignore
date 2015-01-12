@@ -1,2 +1,3 @@
 /bin/
 /tododb.sqlite
+*.todo
