@@ -9,7 +9,7 @@ import beDone.storage.PersistentStorageInterface;
 
 public class TodoConsoleRouter implements TodoRouterInterface {
 
-	private enum Zustand {MENU, INPUT, OUTPUT, DELETE, LOAD, SAVE, EXIT};
+	private enum Zustand {MENU, INPUT, OUTPUT, DELETE, EDIT_STATUS, LOAD, SAVE, EXIT};
 	
 	private TodoOutputInterface 		out;
 	private TodoInputInterface 			in;
@@ -48,6 +48,12 @@ public class TodoConsoleRouter implements TodoRouterInterface {
 				case DELETE:
 					if(this.out != null)
 						this.out.callOutputDelete();
+					this.zustand = Zustand.MENU;
+					break;
+					
+				case EDIT_STATUS:
+					if(this.out != null)
+						this.out.callOutputStatus();
 					this.zustand = Zustand.MENU;
 					break;
 	
@@ -93,7 +99,10 @@ public class TodoConsoleRouter implements TodoRouterInterface {
 		System.out.println("Auswahl der Aktion:");
 		if(this.in != null) 		System.out.println("\t Neuen Todo-Eintrag hinzufügen: n");
 		if(this.out != null)		System.out.println("\t Todos ansehen:                 v");
-		if(this.out != null && this.out.hasDelete())		System.out.println("\t Todo  löschen:                 d");
+		if(this.out != null && this.out.hasDelete())		
+			System.out.println("\t Todo  löschen:                 d");
+		if(this.out != null && this.out.hasEditStatus())		
+			System.out.println("\t Todo-Status öndern:            e");
 		if(this.storage != null)	System.out.println("\t Todoliste-Laden:               l");
 		if(this.storage != null)	System.out.println("\t Aktuelle Todoliste-Speichern:  s");
 		System.out.println("\t Programm schließen             q");
@@ -113,6 +122,7 @@ public class TodoConsoleRouter implements TodoRouterInterface {
 			case 'n': return Zustand.INPUT;
 			case 'v': return Zustand.OUTPUT;
 			case 'd': return Zustand.DELETE;
+			case 'e': return Zustand.EDIT_STATUS;
 			case 'l': return Zustand.LOAD;
 			case 's': return Zustand.SAVE;
 			case 'q': return Zustand.EXIT;

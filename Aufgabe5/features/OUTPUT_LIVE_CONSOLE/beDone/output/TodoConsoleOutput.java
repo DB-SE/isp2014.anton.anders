@@ -12,12 +12,14 @@ public class TodoConsoleOutput implements TodoOutputInterface {
 
 	protected TodoList todolist = null;
 	public boolean has_delete;
+	public boolean has_edit_status;
 	
 	public void setTodoList(TodoList t) {
 		this.todolist = t;
 	}
 
-	public void callOutput() {
+	public void callOutput(){
+
 		ConsoleIO c = ConsoleIO.getInstance();
 		
 		ArrayList<String> out = new ArrayList<String>();
@@ -50,9 +52,15 @@ public class TodoConsoleOutput implements TodoOutputInterface {
 	
 	public void callOutputDelete() {
 	}
+	public void callOutputStatus() {
+	}
 	
 	public boolean hasDelete(){
 		return this.has_delete;
+	}
+	
+	public boolean hasEditStatus(){
+		return this.has_edit_status;
 	}
 
 
