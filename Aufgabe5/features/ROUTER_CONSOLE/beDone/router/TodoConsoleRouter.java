@@ -9,9 +9,10 @@ import beDone.storage.PersistentStorageInterface;
 
 public class TodoConsoleRouter implements TodoRouterInterface {
 
-	private enum Zustand {MENU, INPUT, OUTPUT, DELETE, EDIT_STATUS, LOAD, SAVE, EXIT};
+	private enum Zustand {MENU, INPUT, OUTPUT, DELETE, EDIT_STATUS, LOAD, EXPORT, SAVE, EXIT};
 	
 	private TodoOutputInterface 		out;
+	private TodoOutputInterface 		export;
 	private TodoInputInterface 			in;
 	private PersistentStorageInterface 	storage;
 	
@@ -63,6 +64,12 @@ public class TodoConsoleRouter implements TodoRouterInterface {
 					this.zustand = Zustand.MENU;
 					break;
 					
+				case EXPORT:
+					if(this.export != null)
+						this.export.callOutput();
+					this.zustand = Zustand.MENU;
+					break;
+					
 				case LOAD:
 					if(this.storage != null)
 						this.storage.load();
@@ -86,7 +93,10 @@ public class TodoConsoleRouter implements TodoRouterInterface {
 
 	public void setInput(TodoInputInterface input) {
 		this.in = input;
-		
+	}
+	
+	public void setExport(TodoOutputInterface input) {
+		this.export = input;
 	}
 
 	public void setStorage(PersistentStorageInterface storage) {
@@ -99,6 +109,7 @@ public class TodoConsoleRouter implements TodoRouterInterface {
 		System.out.println("Auswahl der Aktion:");
 		if(this.in != null) 		System.out.println("\t Neuen Todo-Eintrag hinzufügen: n");
 		if(this.out != null)		System.out.println("\t Todos ansehen:                 v");
+		if(this.export != null)		System.out.println("\t Todos exportieren:             x");
 		if(this.out != null && this.out.hasDelete())		
 			System.out.println("\t Todo  löschen:                 d");
 		if(this.out != null && this.out.hasEditStatus())		
@@ -125,6 +136,7 @@ public class TodoConsoleRouter implements TodoRouterInterface {
 			case 'e': return Zustand.EDIT_STATUS;
 			case 'l': return Zustand.LOAD;
 			case 's': return Zustand.SAVE;
+			case 'x': return Zustand.EXPORT;
 			case 'q': return Zustand.EXIT;
 			case '\r': return this.getMenuSelect();
 			case '\n': return this.getMenuSelect();

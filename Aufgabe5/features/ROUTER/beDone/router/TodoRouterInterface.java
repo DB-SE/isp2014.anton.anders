@@ -18,4 +18,5 @@ public interface TodoRouterInterface {
 	public void setOutput(TodoOutputInterface output);
 	public void setInput(TodoInputInterface input);
 	public void setStorage(PersistentStorageInterface storage);
+	public void setExport(TodoOutputInterface input);
 }
